@@ -12,7 +12,7 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 - task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifactType: 'pipeline'
-    artifactName: 'drop'
+  displayName: Publish_Artifact
+  inputs:  
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+    ArtifactName: 'drop'
